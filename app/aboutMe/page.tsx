@@ -1,7 +1,20 @@
+"use client";
 import { title } from "@/components/primitives";
+import { Button } from "@heroui/button";
+import { useState } from "react";
 
 export default function AboutMePage() {
-  return (
+    let facts: string[] = ["n 2006, an Australian man tried to sell New Zealand on eBay. The price rose to $3,000 before eBay shut it down.",
+        "When asked if he knew the speed of sound, Einstein said he \"didn't carry such information in my mind since it\'s readily available in books.",
+        '12+1 = 11+2, and "twelve plus one" is an anagram of "eleven plus two."',
+        "William McKinley was on the $500 bill, Grover Cleveland was on the $1,000, and James Madison was on the $5,000.",
+        "In Japan, letting a sumo wrestler make your baby cry is considered good luck.",
+        "Nutella was invented during WWII, when an Italian pastry maker mixed hazelnuts into chocolate to extend his chocolate ration.",
+        "The Scots have a word for that panicky hesitation you get when introducing someone whose name you can't remember: tartle."
+];
+    const [fact, setFact] = useState("");
+    return (
+    
     <div>
       <h1 className={title()}>About Me!</h1>
 
@@ -81,7 +94,8 @@ export default function AboutMePage() {
     </div>
 
     <br /><br /><br /><br /><br /><br />
-
+    <Button onPress={() => {setFact(facts[Math.floor(Math.random()*facts.length)])}}>Press for a fact!</Button>
+        <p>{fact}</p>
     </div>
   );
 }
